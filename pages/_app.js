@@ -1,25 +1,22 @@
 import '@/styles/globals.css'
-import { useEffect } from 'react'
-import EdgioRUM from '@/edgio/rum'
 import { useRouter } from 'next/router'
 import Navbar from '@/components/Navbar'
-import installDevtools from '@edgio/devtools/install'
+import DomainSearch from '@/components/Form'
 
-// Include the RUM Analytics in the production build only
-if (process.env.NODE_ENV === 'production') {
-  EdgioRUM('f3b82d21-7df8-46e4-8475-5f30ed585341')
-}
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = () => {
   const router = useRouter()
-  useEffect(() => {
-    // Enable devtools manually, instead of relying on defaults by Edgio
-    installDevtools()
-  }, [])
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-[#9a1ab1] via-[#004966] to-[#01B18D]">
       <Navbar />
-      <Component key={router.asPath} {...pageProps} />
+      <div className="flex min-h-[calc(100vh-56px)] flex-col items-center justify-center px-5 md:px-0">
+        <div className="flex flex-row flex-wrap">
+          <div className="flex flex-col items-start justify-start rounded p-5">
+            <h1 className="text-xl font-bold text-white">Web Security Audit</h1>
+              <DomainSearch />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
