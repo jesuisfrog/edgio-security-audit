@@ -160,7 +160,7 @@ function DomainSearch() {
                     <button type="submit" className='search-button text-white'>Search</button>
                 </div>
             </form>
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p className='text-white'>Loading...</p>}
             {results.length > 0 && (
                 <div>
                     <Table data={results} />
