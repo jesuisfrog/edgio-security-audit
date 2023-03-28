@@ -8,7 +8,6 @@ function DomainSearch() {
     const [isLoading, setIsLoading] = useState(false);
     const [results, setResults] = useState([]);
 
-    const apiEndpoint = 'https://ec2-18-218-210-20.us-east-2.compute.amazonaws.com:5000'
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,7 +17,7 @@ function DomainSearch() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${apiEndpoint}/wsra?domain=${domain}`);
+                const response = await axios.get(`/l0-api/wsra?domain=${domain}`);
                 setResults(response.data);
                 setIsLoading(false);
             } catch (error) {
@@ -118,33 +117,6 @@ function DomainSearch() {
             </div>
         );
     }
-
-    // const exampleData = [
-    //     {
-    //         "url": "https://claimsonline.kemper.com",
-    //         "detected": true,
-    //         "firewall": "Generic",
-    //         "manufacturer": "Unknown"
-    //     },
-    //     {
-    //         "url": "https://careers.kemper.com",
-    //         "detected": true,
-    //         "firewall": "Cloudflare",
-    //         "manufacturer": "Cloudflare Inc."
-    //     },
-    //     {
-    //         "url": "https://www.kemper.com",
-    //         "detected": false,
-    //         "firewall": "None",
-    //         "manufacturer": "None"
-    //     },
-    //     {
-    //         "url": "https://wwwuat.kemper.com",
-    //         "detected": false,
-    //         "firewall": "None",
-    //         "manufacturer": "None"
-    //     }
-    // ]
 
     return (
         <div>

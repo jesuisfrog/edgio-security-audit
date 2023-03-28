@@ -10,8 +10,8 @@ router.match('/__xdn__/:path*', ({ redirect }) => {
   redirect('/__edgio__/:path*', 301)
 })
 
-// API (Any backend) caching
-// router.match('/l0-api/:path*', ({ proxy }) => { proxy('api', { path: ':path*' })})
+// API 
+router.match('/l0-api/:path*', ({ proxy }) => { proxy('api', { path: ':path*' })})
 
 
 // Only compiled with 0 build / 0 deploy
